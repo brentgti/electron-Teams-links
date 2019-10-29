@@ -2,13 +2,29 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Hello World!</title>
   </head>
   <body>
-    <h1>Hello World!</h1>
-    We are using Node.js <span id="node-version"></span>,
-    Chromium <span id="chrome-version"></span>,
-    and Electron <span id="electron-version"></span>.
+
+    <div>
+      <a href="javascript:open_close_teams_win('https://teams.microsoft.com/l/channel/19%3a140aa97eda134028977bf2dd83a7b6c8%40thread.skype/Smart%2520Phone%2520Tools%2520(22627)?groupId=e5b360df-9183-4346-9c3a-1269f6b66e86&tenantId=1a10ce3a-da09-4841-8838-13425090cd29')"
+        title="Smartphone tools">S</a>
+      &nbsp;
+      <a href="javascript:open_close_teams_win('https://teams.microsoft.com/l/channel/19%3accc2aa8e2eb146918c6f642fd3381048%40thread.skype/Wearable%2520Computing%2520Technology%2520(22626)?groupId=e5b360df-9183-4346-9c3a-1269f6b66e86&tenantId=1a10ce3a-da09-4841-8838-13425090cd29')"
+        title="Wearable computing">W</a>
+    </div>
+
+    <script>
+      async function open_close_teams_win(url) {
+        let w = window.open(url);
+        await sleep(1000);
+        w.close();
+        function sleep(ms){
+          return new Promise(resolve=>{
+            setTimeout(resolve,ms)
+          })
+        }
+      }
+    </script>
 
     <!-- You can also require other files to run in this process -->
     <script src="./renderer.js"></script>

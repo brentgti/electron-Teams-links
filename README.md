@@ -8,7 +8,7 @@ The application runs in the System Tray (look for the MS Teams icon). Right clic
 
 ## To Use
 
-Clone this repository and run "npm start" from the main directory or create an exe by following the instructions here: https://www.npmjs.com/package/electron-packager
+Clone this repository and run "npm start" from the main directory or create an executable by following the instructions here: https://www.npmjs.com/package/electron-packager
 
 ## To Do
 

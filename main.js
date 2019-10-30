@@ -9,15 +9,12 @@ let mainWindow
 function createWindow () {
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    width: 90,
-    height: 40,
-    x: 3000,
-    y: 0,
+    width: 800,
+    height: 600,
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js')
-    },
-    frame: false,
-    alwaysOnTop:true
+      preload: path.join(__dirname, 'preload.js'),
+      nodeIntegration: true
+    }
   });
 
   // and load the index.html of the app.
@@ -33,6 +30,11 @@ function createWindow () {
     // when you should delete the corresponding element.
     mainWindow = null
   })
+
+  mainWindow.minimize();
+
+  mainWindow.setSkipTaskbar(true)
+
 }
 
 // This method will be called when Electron has finished

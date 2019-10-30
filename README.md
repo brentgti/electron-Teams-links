@@ -1,10 +1,6 @@
 # electron-teams-links
 
-**Clone and run for a quick way to see Electron in action.**
-
-This is a minimal Electron application based on the [Quick Start Guide](https://electronjs.org/docs/tutorial/quick-start) within the Electron documentation.
-
-The application runs in the System Tray (look for the MS Teams icon). Right click on the icon to select the Teams link to which you want to navigate. 
+This is a minimal Electron application based on electron-quick-start. It runs in the System Tray (look for the MS Teams icon). Right click on the icon to select the Teams link to which you want to navigate. 
 
 ## To Use
 

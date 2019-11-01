@@ -16,9 +16,6 @@
           })
         }
       }
-    </script>
-
-    <script type = "text/javascript">
 
       const {remote} = require('electron');
       const {Tray, Menu} = remote;
@@ -46,11 +43,21 @@
           click: function () {
             open_close_teams_win('https://teams.microsoft.com/l/channel/19%3addf568af8a4748bb891fcfebe2fb9763%40thread.skype/Interesting%2520Topics?groupId=9a114172-1fb8-4e83-ad1b-5b2b5e58cc9f&tenantId=1a10ce3a-da09-4841-8838-13425090cd29')
           }
+        },
+        {
+          type: 'separator'
+        },
+        {
+          label: 'exit',
+          click: function () {
+            remote.getCurrentWindow().close()
+          }
         }
       ];
 
       let trayMenu = Menu.buildFromTemplate(trayMenuTemplate);
-      trayIcon.setContextMenu(trayMenu)
+      trayIcon.setContextMenu(trayMenu);
+      trayIcon.setToolTip('Team Links');
     </script>
 
     <!-- You can also require other files to run in this process -->

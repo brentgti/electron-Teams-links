@@ -1,20 +1,17 @@
 # electron-teams-links
 
-**Clone and run for a quick way to see Electron in action.**
-
-This is a minimal Electron application based on the [Quick Start Guide](https://electronjs.org/docs/tutorial/quick-start) within the Electron documentation.
-
-The application runs in the System Tray (look for the MS Teams icon). Right click on the icon to select the Teams link to which you want to navigate. 
+This is a minimal Electron application based on electron-quick-start. It runs in the System Tray (look for the MS Teams icon). Right click on the icon to select the Teams link to which you want to navigate. 
 
 ## To Use
 
-Clone this repository and run "npm start" from the main directory or create an exe by following the instructions here: https://www.npmjs.com/package/electron-packager
+Clone this repository and run "npm start" from the main directory or create an executable by following the instructions here: https://www.npmjs.com/package/electron-packager
 
 ## To Do
 
 * Have the app read links from a user editable file (currently they're hard coded) or allow them to be entered right in the app.
 * Use left click on tray icon instead of (or in addition to) right click. 
 * Move script code out of index.html, into a separate file.
+* Detect when the Teams web page that invokes Teams is done loading, and then close the window it's in, instead of waiting an arbitrary 1 second after the window is opened to close it.
 
 ## Resources for Learning Electron
 

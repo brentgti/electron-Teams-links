@@ -58,6 +58,9 @@
       let trayMenu = Menu.buildFromTemplate(trayMenuTemplate);
       trayIcon.setContextMenu(trayMenu);
       trayIcon.setToolTip('Team Links');
+      trayIcon.on('click', function() {
+        trayIcon.popUpContextMenu()
+      })
     </script>
 
     <!-- You can also require other files to run in this process -->

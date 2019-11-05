@@ -6,7 +6,7 @@
  */
 async function open_close_teams_window(url) {
     let w = window.open(url);
-    await sleep(1000);
+    await sleep(1500);
     w.close();
 
     function sleep(ms) {
@@ -23,47 +23,54 @@ const fs = require("fs");
 
 let trayIcon = new Tray( 'app.ico');
 
-trayIcon.setToolTip('Team Links');
+trayIcon.setToolTip('Teams Links');
+
+/**
+ * Populates array from links file to use for popup menu
+ * @param data
+ * @returns {[]}
+ */
+function populateArrayForMenu(data) {
+    const trayMenuTemplate = [];
+    let dataArray = data.toString().split('\n');
+    for (let i = 0; i < dataArray.length; i++) {
+        let entryArray = dataArray[i].split(',');
+        let entry = {
+            label: entryArray[0],
+            click: function () {
+                open_close_teams_window(entryArray[1])
+            }
+        };
+        trayMenuTemplate.push(entry);
+    }
+    let separator = {
+        type: 'separator'
+    };
+    let editLinks = {
+        label: 'edit links file',
+        click: function () {
+            shell.openItem('links.txt')
+        }
+    };
+    let exit = {
+        label: 'exit',
+        click: function () {
+            remote.getCurrentWindow().close()
+        }
+    };
+    trayMenuTemplate.push(separator);
+    trayMenuTemplate.push(editLinks);
+    trayMenuTemplate.push(exit);
+    return trayMenuTemplate;
+}
 
 trayIcon.on('click', function () {
-    const trayMenuTemplate = [];
     fs.readFile('links.txt', function (err, data) {
         if (err) {
             return console.error(err);
         }
-        let dataArray = data.toString().split('\n');
-        for (let i = 0; i < dataArray.length; i++) {
-            let entryArray = dataArray[i].split(',');
-            let entry = {
-                label: entryArray[0],
-                click: function () {
-                    open_close_teams_window(entryArray[1])
-                }
-            };
-            trayMenuTemplate.push(entry);
-            console.log(trayMenuTemplate);
-        }
-        let separator = {
-            type: 'separator'
-        };
-        let editLinks = {
-            label: 'edit links file',
-            click: function () {
-                shell.openItem('links.txt')
-            }
-        }
-        let exit = {
-            label: 'exit',
-            click: function () {
-                remote.getCurrentWindow().close()
-            }
-        };
-        trayMenuTemplate.push(separator);
-        trayMenuTemplate.push(editLinks);
-        trayMenuTemplate.push(exit);
-
-        let trayMenu = Menu.buildFromTemplate(trayMenuTemplate);
+        let trayMenu = Menu.buildFromTemplate(populateArrayForMenu(data));
         trayIcon.setContextMenu(trayMenu);
+        trayIcon.popUpContextMenu()
     });
-    trayIcon.popUpContextMenu()
 });

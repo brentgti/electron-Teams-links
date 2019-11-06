@@ -1,6 +1,6 @@
 # electron-teams-links
 
-This is a minimal Electron application based on electron-quick-start. It runs in the System Tray (look for the MS Teams icon). Right click on the icon to select the Teams link to which you want to navigate. 
+This is a minimal Electron application based on electron-quick-start. It runs in the System Tray (look for the MS Teams icon). Click on the icon to select the Teams link to which you want to navigate in the Teams app. 
 
 ## To Use
 

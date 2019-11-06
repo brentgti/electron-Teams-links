@@ -8,10 +8,8 @@ Clone this repository and run "npm start" from the main directory or create an e
 
 ## To Do
 
-* Have the app read links from a user editable file (currently they're hard coded) or allow them to be entered right in the app.
-* Use left click on tray icon instead of (or in addition to) right click. 
-* Move script code out of index.html, into a separate file.
-* Detect when the Teams web page that invokes Teams is done loading, and then close the window it's in, instead of waiting an arbitrary 1 second after the window is opened to close it.
+* Allow shortcut keys to be created so that navigation to Teams links can be invoked solely via keyboard from anywhere in Windows. (see https://electronjs.org/docs/api/global-shortcut)
+* Detect when the Teams web page that invokes Teams is done loading, and then close the window it's in, instead of the current implementation of waiting an arbitrary 1.5 seconds after the window is opened to close it.
 
 ## Resources for Learning Electron
 

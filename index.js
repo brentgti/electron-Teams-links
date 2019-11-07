@@ -32,17 +32,6 @@ trayIcon.setToolTip('Teams Links');
  */
 function populateArrayForMenu(data) {
     const trayMenuTemplate = [];
-    let dataArray = data.toString().split('\n');
-    for (let i = 0; i < dataArray.length; i++) {
-        let entryArray = dataArray[i].split(',');
-        let entry = {
-            label: entryArray[0],
-            click: function () {
-                open_close_teams_window(entryArray[1])
-            }
-        };
-        trayMenuTemplate.push(entry);
-    }
     let separator = {
         type: 'separator'
     };
@@ -58,9 +47,20 @@ function populateArrayForMenu(data) {
             remote.getCurrentWindow().close()
         }
     };
-    trayMenuTemplate.push(separator);
     trayMenuTemplate.push(editLinks);
     trayMenuTemplate.push(exit);
+    trayMenuTemplate.push(separator);
+    let dataArray = data.toString().split('\n');
+    for (let i = 0; i < dataArray.length; i++) {
+        let entryArray = dataArray[i].split(',');
+        let entry = {
+            label: entryArray[0],
+            click: function () {
+                open_close_teams_window(entryArray[1])
+            }
+        };
+        trayMenuTemplate.push(entry);
+    }
     return trayMenuTemplate;
 }
 

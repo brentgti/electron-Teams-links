@@ -6,7 +6,7 @@ This is a minimal Electron application based on electron-quick-start. It runs in
 
 Clone this repository and run "npm start" from the main directory or create an executable by following the instructions here: https://www.npmjs.com/package/electron-packager
 * Run "electron-packager ." from the top-level directory
-* Cppy app.ico and links.txt into the newly created Teams Links-win32-x64 directory
+* Copy and paste app.ico and links.txt into the newly created Teams Links-win32-x64 directory
 
 ## To Do
 
